@@ -1,6 +1,8 @@
-# Appwrite React Template
+# Appwrite React JS Template
 
-This git contains source code which demonstrates the configuration and usage of Appwrite services including authentication, database, and storage in a React application.
+1. This is just a personal project or template that i mostly used for my appwrite.
+2. It contains mostly used methods of the appwrite.
+3. This git contains source code which demonstrates the configuration of Appwrite and usage of Appwrite services including authentication, database, and storage in a React JS application.
 
 ## Project Structure
 
@@ -27,7 +29,7 @@ This git contains source code which demonstrates the configuration and usage of 
    cd appwrite-template
    ```
 
-2. Create a react app and move `app` and `config` folder inside `src` folder:
+2. Create a react application and move `app` and `config` folder inside `src` folder:
 
    ```bash
    npm create vite@latest
@@ -57,19 +59,11 @@ This git contains source code which demonstrates the configuration and usage of 
 
 ## Usage
 
-1. Start the development server:
+1. Start the development server by `npm run dev` or `npm run start`.
 
-   ```bash
-   npm run dev
-   ```
+2. Open your browser and navigate to the `http://localhost:3000` to see the application in action.
 
-   or
-
-   ```bash
-   npm run start
-   ```
-
-2. Open your browser and navigate to `http://localhost:3000` to see the application in action.
+3. Import the functions from `app/index.js` written in the `app/*.js` files as required and use them.
 
 ## Services
 

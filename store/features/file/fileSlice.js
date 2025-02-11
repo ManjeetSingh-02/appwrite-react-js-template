@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { storage } from '../../../backend';
+import { storage } from '../../../app';
 
 const createFile = createAsyncThunk('file/createFile', async ({ type, file, perms = [] }, thunkAPI) => {
   try {

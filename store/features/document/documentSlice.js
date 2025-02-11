@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { db } from '../../../backend';
+import { db } from '../../../app';
 
 const listDocuments = createAsyncThunk('document/listDocuments', async ({ type, queries = [] }, thunkAPI) => {
   try {

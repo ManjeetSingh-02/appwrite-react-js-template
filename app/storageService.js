@@ -1,52 +1,41 @@
-import { appConfig } from "../config/appConfig";
+import { backendConfig } from "../config/backendConfig";
 import { Client, ID, Storage } from "appwrite";
 
 class StorageService {
   #client;
   #storage;
   constructor() {
-    this.#client = new Client()
-      .setEndpoint(appConfig.endpointURL)
-      .setProject(appConfig.projectID);
+    this.#client = new Client().setEndpoint(backendConfig.endpointURL).setProject(backendConfig.projectID);
     this.#storage = new Storage(this.#client);
   }
 
-  async createFile(file, perms = []) {
+  async createFile(type, file, perms) {
     try {
-      return await this.#storage.createFile(
-        appConfig.bucketID,
-        ID.unique(),
-        file,
-        perms,
-      );
+      return await this.#storage.createFile(backendConfig[type].bucketID, ID.unique(), file, perms);
     } catch (error) {
       throw error;
     }
   }
 
-  async getFile(fileID) {
+  async getFile(type, fileID) {
     try {
-      return await this.#storage.getFile(appConfig.bucketID, fileID);
+      return await this.#storage.getFile(backendConfig[type].bucketID, fileID);
     } catch (error) {
       throw error;
     }
   }
 
-  async deleteFile(fileID) {
+  async deleteFile(type, fileID) {
     try {
-      return await this.#storage.deleteFile(appConfig.bucketID, fileID);
+      return await this.#storage.deleteFile(backendConfig[type].bucketID, fileID);
     } catch (error) {
       throw error;
     }
   }
 
-  previewFile(fileID, options = {}) {
+  previewFile(type, fileID, options) {
     try {
-      return this.#storage.getFilePreview(
-        appConfig.bucketID,
-        fileID,
-        ...options,
-      );
+      return this.#storage.getFilePreview(backendConfig[type].bucketID, fileID, ...options);
     } catch (error) {
       throw error;
     }

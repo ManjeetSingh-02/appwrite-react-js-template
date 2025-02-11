@@ -1,13 +1,11 @@
-import { appConfig } from "../config/appConfig";
+import { backendConfig } from "../config/backendConfig";
 import { Account, Client, ID } from "appwrite";
 
 class AuthService {
   #client;
   #account;
   constructor() {
-    this.#client = new Client()
-      .setEndpoint(appConfig.endpointURL)
-      .setProject(appConfig.projectID);
+    this.#client = new Client().setEndpoint(backendConfig.endpointURL).setProject(backendConfig.projectID);
     this.#account = new Account(this.#client);
   }
 
@@ -55,7 +53,6 @@ class AuthService {
     try {
       return await this.#account.updatePassword(newPass, oldPass);
     } catch (error) {
-      console.error("APPWRITE AUTH :: UPDATE PASSWORD :: ", error);
       throw error;
     }
   }
